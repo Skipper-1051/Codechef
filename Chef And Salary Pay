@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+int streax(string s) 
+{
+    int maximum=0;
+    int i=0;
+    while(i<s.size())
+    {
+        int conOnes=0;
+        while(i< s.size() && s[i]==1)
+        {
+            conOnes++;
+            i++;
+        }
+        maximum=max(maximum,conOnes);
+        i++;
+    }
+    return maximum;
+}
+
+void solve()
+{
+    int x,y;
+    cin>>x>>y;
+    string s;
+    cin>>s;
+    int ones =0,res=0;
+    int max = INT_MIN;
+    for(int i=0;i<s.size();++i)
+    {
+        if(s[i]=='1')
+        {
+        ones++;
+        }
+    }
+    for(int i=0;i<s.size();++i)
+    {
+        int j=i+1,cnt=1;
+        while(s[i]=='1' && s[j]=='1')
+        {
+            i++;
+            j++;
+            cnt++;
+        }
+        if(cnt>max)
+        {
+            max=cnt;
+        }
+    }
+    res = ones*x + (max*y);
+    cout<<res<<"\n";
+}
+
+int main()
+{
+    IOS;
+    int t;
+    cin >> t;
+    int tc = 0;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
