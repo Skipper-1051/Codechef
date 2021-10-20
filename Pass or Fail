@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,x,p,m;
+        cin>>n>>x>>p;
+        m=(3*x)-(n-x);
+        if (m>=p)
+            cout<<"PASS\n";
+        else
+            cout<<"FAIL\n";
+    }
+	return 0;
+}
